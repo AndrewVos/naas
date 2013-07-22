@@ -7,6 +7,8 @@ module Naas
   class Application < Sinatra::Base
     register Sinatra::Synchrony
 
+    set :bind, '0.0.0.0'
+
     get "/message/:client_id" do
       wait_for_next_message params[:client_id]
     end
