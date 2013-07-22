@@ -1,0 +1,19 @@
+#!/usr/bin/env ruby
+
+$:.unshift(File.dirname(__FILE__) + '/../lib') unless $:.include?(File.dirname(__FILE__) + '/../lib')
+
+require "naas"
+require "httparty"
+
+if ARGV[0] == "server"
+  Naas::Application.run!
+elsif ARGV[0] == "next-message"
+  puts HTTParty.get("#{ARGV[1]}/message/#{ARGV[2]}")
+elsif ARGV[0] == "add-message"
+  HTTParty.post("#{ARGV[1]}/message/#{ARGV[2]}", :body => {:title => ARGV[3], :body => ARGV[4]})
+else
+  puts "Usage:"
+  puts "naas server"
+  puts "naas next-message <server_url> <client_id>"
+  puts "naas add-message <server_url> <client_id> <title> <body>"
+end
