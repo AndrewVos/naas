@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = Naas::VERSION
   spec.authors       = ["Andrew Vos"]
   spec.email         = ["andrew.vos@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{}
+  spec.summary       = %q{}
   spec.homepage      = ""
   spec.license       = "MIT"
 
